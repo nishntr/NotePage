@@ -9,8 +9,6 @@ class item(models.Model):
     text = models.TextField()
 
     class Meta:
-        """Meta definition for item."""
-
         verbose_name = 'item'
         verbose_name_plural = 'items'
 
