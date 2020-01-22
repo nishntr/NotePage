@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+
+{% block one %}
+
+<div style="margin: 2%;">
+    <form method="post">
+        <div class="form-group">
+
+            {% render_field form.title class="form-control glowing-border" placeholder="Title" %}
+            {% csrf_token %}
+        </div>
+        <div class="form-group">
+            {% render_field form.text class="form-control form-control-lg glowing-border" placeholder="Write your notes here.." %}
+            {% csrf_token %}
+
+        </div>
+        <button type="submit" class="btn btn-outline-danger btn-lg">Submit</button>
+    </form>
+</div>
+
+{% endblock one %}

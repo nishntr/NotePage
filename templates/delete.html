@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+
+{% block one %}
+<!-- <div style="margin: 2%;">
+    <form method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ object }}"?</p>
+        <button type="submit" class="btn btn-outline-danger btn-lg">Confirm</button>
+    </form>
+</div> -->
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <form method="post">{% csrf_token %}
+            <p class="lead">Are you sure you want to delete the note with title "{{ object }}"?</p>
+            <button type="submit" class="btn btn-danger btn-lg">Confirm</button>
+        </form>
+    </div>
+</div>
+{% endblock one %}

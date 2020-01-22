@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Shop Homepage - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="{% static 'jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <!-- Custom styles for this template -->
+  <link href='{% static "css/shop-homepage.css" %}' rel="stylesheet">
+
+</head>
+
+<body style="min-height: 100%;">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgb(175, 20, 20);">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'todo_app:home' %}"
+        style="font-size: x-large; font-weight: 600;">NotePage</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'todo_app:home' %}" style="font-size: larger;">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: larger;" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: larger;" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {% block one %}
+  <!-- Page Contnt -->
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+
+        <div class="container">
+          <a href="{% url 'todo_app:add' %}" class="btn btn-outline-dark add">+</a>
+
+        </div>
+
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+        <div class="row">
+
+          {% for i in object_list %}
+
+
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100" style="width: 16rem;min-height: 10rem;">
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="{% url 'todo_app:detail' i.pk %}"
+                    style="text-decoration: none; font-size: medium; color: slategray;">{{ i.title }}</a>
+                </h4>
+                <a href="{% url 'todo_app:detail' i.pk %}" style="text-decoration: none;color: black;">
+                  <p class="card-text" style="display: -webkit-box;
+                  -webkit-line-clamp: 2;
+                  -webkit-box-orient: vertical; overflow: hidden;">
+                    {{i.text}}</p>
+                </a>
+                <div style="position: absolute;bottom: 2px;">
+                  <p>
+                    <a href="{% url 'todo_app:detail' i.pk %}" class="btn btn-outline-danger btn-sm">Edit</a>
+                    <a href="{% url 'todo_app:delete' i.pk %}" id="showToast"
+                      class="btn btn-outline-dark btn-sm">Delete</a>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- <div class="card" style="width: 18rem; height: 10rem;">
+              <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'todo_app:detail' i.pk %}">{{ i.title }}</a></h5>
+                <p class="card-text"><a href="{% url 'todo_app:detail' i.pk %}"
+                    style="text-decoration: none;color: black;">{{i.text}}</a></p>
+                <a href="{% url 'todo_app:detail' i.pk %}" class="card-link">Edit</a>
+                <a href="{% url 'todo_app:delete' i.pk %}" class="card-link">Delete</a>
+              </div>
+            </div> -->
+          </div>
+          {% endfor %}
+
+          <!-- <div class="row mb-5">
+            <div class="col-md-4">
+              <div class="card">
+                <img src="https://source.unsplash.com/random/1920x1080" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{ i.title }}</h5>
+                  <p class="card-text">{{i.text}}</p>
+                  <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div> -->
+
+        </div>
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false"
+    style="position: absolute; top: 50%;right: 50%;">
+    <div class="toast-header">
+
+      <strong class="mr-auto">Bootstrap</strong>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body">
+      <form method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ object.title }}"?</p>
+        <input type="submit" value="Confirm">
+      </form>
+    </div>
+  </div> -->
+
+  <!-- /.container -->
+  {% endblock one %}
+
+  <!-- {% block two %}
+
+  {% endblock two %} -->
+
+  <!-- Footer -->
+  <!-- <footer class="foot">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+
+  </footer> -->
+
+  <!-- Bootstrap core JavaScript
+  <script src="{% static 'jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script> -->
+
+</body>
+
+</html>
