@@ -64,6 +64,11 @@ html {
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
+
+/* [class*="col-"] {
+  float: left;
+  padding: 5px;
+} */
 /* .card-text{
   white-space: nowrap;
   overflow: hidden;
