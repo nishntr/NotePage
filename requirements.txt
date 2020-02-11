@@ -3,7 +3,7 @@ astroid==2.3.3
 autopep8==1.4.4
 certifi==2019.11.28
 Click==7.0
-Django==3.0.2
+Django==3.0.3
 django-crispy-forms==1.8.1
 django-widget-tweaks==1.4.5
 Faker==2.0.3
